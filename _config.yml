@@ -1,7 +1,7 @@
 title:            'Copperfield Annotation Admin'
 description:      ''
 url:              ''
-baseurl:          ''
+baseurl:          '/copperfield_annotation_admin'
 copyright:        ''
 theme:            minima
 permalink:        'pretty'
