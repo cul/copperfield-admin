@@ -1,0 +1,42 @@
+---
+layout: page
+manifests:
+  - 'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest.json'
+  - 'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest.json'
+---
+
+<link rel='stylesheet' type='text/css' href="{{ '/build/mirador/css/mirador-combined.css' | absolute_url }}">
+<style>
+  #mirador-iiif-viewer {
+    position: relative;
+    width: 100%;
+    max-height: 60%;
+    min-height: 600px;
+    margin: 1rem 0 1rem 0;
+  }
+  .anno{
+    max-width: 800;
+    overflow: scroll;
+    padding: 10px;
+    margin-top: 10px;
+  }
+</style>
+
+<div id='mirador-iiif-viewer' class='image-viewer mirador' allowfullscreen='allowfullscreen'></div>
+
+
+<button type='button' id='anno_button'>View Cached Annotations</button>
+<button type='button' id='no_anno_button'>Hide Cached Annotations</button>
+<button type='button' id='download'>Download Cached Annotations</button>
+
+<div id='anno_results'></div>
+
+<script src="{{ 'build/mirador/mirador.js' | absolute_url }}"></script>
+<script src="{{ 'build/jszip.min.js' | absolute_url }}"></script>
+<script src="{{ 'build/annotation-endpoint.js' | absolute_url }}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    addManifestsToViewer([{{ page.manifests | jsonify | join: ', '}}]);
+  })
+</script>
