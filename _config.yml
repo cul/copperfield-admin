@@ -1,34 +1,8 @@
-# ==============================================================
-# WAX CONFIGURATION
-# ==============================================================
-# Jekyll configuration files are written in YAML format.
-# Colons, tabs/spacing, and quotes are meaningful in YAML.
-# It is recommended you look at the following guide to avoid
-# syntax errors in this file:
-# ~> https://learnxinyminutes.com/docs/yaml/
-#
-#
-# Questions ?
-# ~> https://minicomp.github.io/wiki/#/
-# ~> https://gitter.im/minicomp/wax/
-#
-# ---------------------------------------------------------------
-# MAIN SETTINGS
-# ---------------------------------------------------------------
-# Feel free to change these! For more info, refer to:
-# ~> https://jekyllrb.com/docs/configuration/options/
-
 title:            'Copperfield Annotation Admin'
 description:      ''
 url:              ''
-baseurl:          '/copperfield'
+baseurl:          ''
 copyright:        ''
-
-# ---------------------------------------------------------------
-# BUILD SETTINGS
-# ---------------------------------------------------------------
-# Best not to mess with these unless you know what you're doing!
-
 theme:      minima
 permalink:  'pretty'
 safe:       true
@@ -36,37 +10,3 @@ exclude:    [Gemfile*, Rakefile, vendor, spec, README.md, wax_theme]
 webrick:
   headers:
     'Access-Control-Allow-Origin': '*'
-
-# --------------------------------------------------------------
-# COLLECTION SETTINGS
-# --------------------------------------------------------------
-# Wax leverages Jekyll collections for much of its
-# functionality, therefor some of the keys below are from
-# Jekyll while others are Wax-specific.
-# For more info, refer to:
-# ~> https://jekyllrb.com/docs/collections/
-
-# --------------------------------------------------------------
-# LUNR SEARCH INDEX SETTINGS
-# --------------------------------------------------------------
-# You can create multiple lunr indexes below (though only one is
-# recommended!) by specifying
-# a `file` to write it to and some `collections` for it to index
-# and running `$ bundle exec rake wax:lunr` .
-# You can optionally generate a default UI by specifying a UI file
-# and running `$ bundle exec rake wax:lunr UI=true`.
-
-# --------------------------------------------------------------
-# SITE MENU SETTINGS
-# --------------------------------------------------------------
-# Each menu item needs a `label` (whats shown), and a `link`
-# (where it goes). An item can optionally have a dropdown
-# submenu via `sub`.
-
-
-# --------------------------------------------------------------
-# SITE FOOTER SETTINGS
-# --------------------------------------------------------------
-#
-
-# FIN
