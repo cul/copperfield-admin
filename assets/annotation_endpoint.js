@@ -1,9 +1,4 @@
 $(document).ready(function() {
-
-  var manifests = '{{ include.manifests }})'.split('|||').flat();
-  window.annoAdminViewer = createViewer(manifests);
-  console.log(window.annoAdminViewer.viewer);
-
   $('#no_anno_button').click(function() {
     $("#anno_results").empty();
   });
@@ -43,29 +38,55 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-function createViewer(manifests) {
-  var opts = {
+function createZenViewer(manifests) {
+  opts = {
     id: 'mirador-iiif-viewer',
-    annotationEndpoint: {
-      'name': 'Local Storage',
-      'module': 'LocalStorageEndpoint'
-    },
-    sidePanel: false,
-    bottomPanel: false,
-    displayLayout: false,
     data: [],
-    windowObjects: [{'loadedManifest': manifests[0] }]
+    windowObjects: [{
+      loadedManifest: manifests[0],
+      displayLayout: false,
+      bottomPanel: false,
+      sidePanel: false,
+      annotationLayer: true
+    }],
+    mainMenuSettings: {
+      show: false
+    }
   };
-  for (m in manifests) { opts['data'].push({ 'manifestUri': manifests[m] }); }
-
+  for (m in manifests) {
+    opts.data.push({ 'manifestUri': manifests[m] });
+  }
   return Mirador(opts);
 }
 
-function addManifestsToViewer(manifests) {
-  console.log(`here: ${window.annoAdminViewer.viewer}`);
+function createAnnotationAdminViewer(manifests) {
+  opts = {
+    id: 'mirador-iiif-viewer',
+    annotationEndpoint: {
+      name: 'Local Storage',
+      module: 'LocalStorageEndpoint'
+    },
+    data: [],
+    windowObjects: [{
+      loadedManifest: manifests[0],
+      displayLayout: false,
+      bottomPanel: false,
+      sidePanel: false
+    }]
+  };
   for (m in manifests) {
-    window.annoAdminViewer.viewer.data.push({ 'manifestUri': manifests[m] });
+    opts.data.push({ 'manifestUri': manifests[m] });
   }
-  // window.annoAdminViewer.viewer.windowObjects.push({'loadedManifest': manifests[0] });
+  return Mirador(opts);
+}
 
+function addManifestAsWindowedObject(viewer, manifest) {
+ viewer.viewer.state.currentConfig.windowObjects = [{'loadedManifest': manifest }];
+}
+
+function addManifestsToViewer(viewer, manifests) {
+  addManifestAsWindowedObject(manifests[0]);
+  for (m in manifests) {
+    viewer.viewer.data.push({ 'manifestUri': manifests[m] });
+  }
 }

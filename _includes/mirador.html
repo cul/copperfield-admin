@@ -1,0 +1,33 @@
+<link rel='stylesheet' type='text/css' href="{{ 'build/mirador/css/mirador-combined.css' | absolute_url }}">
+<link rel='stylesheet' type='text/css' href="{{ 'assets/annotator.css' | absolute_url }}">
+
+<script src="{{ 'build/mirador/mirador.js' | absolute_url }}" type='text/javascript'></script>
+<div id='mirador-iiif-viewer' class='image-viewer mirador' allowfullscreen='allowfullscreen'></div>
+
+<script src="{{ 'assets/annotation_endpoint.js' | absolute_url }}" type='text/javascript'></script>
+
+{%- capture manifests -%}
+[
+  {% for m in include.manifests %}
+    '{{ m }}'{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+]
+{%- endcapture -%}
+
+<script>
+  $(document).ready(function() {
+    {%- if include.viewer == 'anno' -%}
+      createAnnotationAdminViewer({{ manifests }});
+    {%- else -%}
+      createZenViewer({{ manifests }});
+    {%- endif -%}
+  });
+</script>
+
+{%- if include.viewer == 'anno' -%}
+  <button type='button' id='anno_button'>View Cached Annotations</button>
+  <button type='button' id='no_anno_button'>Hide Cached Annotations</button>
+  <button type='button' id='download'>Download Cached Annotations</button>
+
+  <div id='anno_results'></div>
+{%- endif -%}
