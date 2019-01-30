@@ -1,8 +1,8 @@
----
-layout: none
----
 $(document).ready(function() {
-  window.annoAdminViewer = createViewer();
+
+  var manifests = '{{ include.manifests }})'.split('|||').flat();
+  window.annoAdminViewer = createViewer(manifests);
+  console.log(window.annoAdminViewer.viewer);
 
   $('#no_anno_button').click(function() {
     $("#anno_results").empty();
@@ -43,23 +43,29 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-function createViewer() {
-  return Mirador({
+function createViewer(manifests) {
+  var opts = {
     id: 'mirador-iiif-viewer',
     annotationEndpoint: {
       'name': 'Local Storage',
       'module': 'LocalStorageEndpoint'
     },
+    sidePanel: false,
+    bottomPanel: false,
+    displayLayout: false,
     data: [],
-    windowObjects: []
-  });
+    windowObjects: [{'loadedManifest': manifests[0] }]
+  };
+  for (m in manifests) { opts['data'].push({ 'manifestUri': manifests[m] }); }
+
+  return Mirador(opts);
 }
 
 function addManifestsToViewer(manifests) {
-  manifests = manifests.flat();
+  console.log(`here: ${window.annoAdminViewer.viewer}`);
   for (m in manifests) {
     window.annoAdminViewer.viewer.data.push({ 'manifestUri': manifests[m] });
   }
-  console.log('preloading ' + manifests[0]);
-  window.annoAdminViewer.viewer.data.push({'loadedManifest': manifests[0] });
+  // window.annoAdminViewer.viewer.windowObjects.push({'loadedManifest': manifests[0] });
+
 }

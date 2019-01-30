@@ -31,12 +31,14 @@ manifests:
 
 <div id='anno_results'></div>
 
-<script src="{{ 'build/mirador/mirador.js' | absolute_url }}"></script>
-<script src="{{ 'build/jszip.min.js' | absolute_url }}"></script>
-<script src="{{ 'build/annotation-endpoint.js' | absolute_url }}"></script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    addManifestsToViewer([{{ page.manifests | jsonify | join: ', '}}]);
-  })
+<script src="{{ 'build/mirador/mirador.js' | absolute_url }}" type='text/javascript'></script>
+<script type='text/javascript'>
+  {% assign manifests = page.manifests | join: '|||' %}
+  {% include annotation-endpoint.js manifests=manifests %}
 </script>
+
+<!-- <script type="text/javascript">
+  $(document).ready(function() {
+    addManifestsToViewer();
+  })
+</script> -->
