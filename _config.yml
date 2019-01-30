@@ -3,10 +3,10 @@ description:      ''
 url:              ''
 baseurl:          ''
 copyright:        ''
-theme:      minima
-permalink:  'pretty'
-safe:       true
-exclude:    [Gemfile*, Rakefile, vendor, spec, README.md, wax_theme]
+theme:            minima
+permalink:        'pretty'
+safe:             true
+exclude:          [Gemfile*, Rakefile, vendor, spec, README.md]
 webrick:
   headers:
     'Access-Control-Allow-Origin': '*'
