@@ -17,17 +17,17 @@
 <script>
   $(document).ready(function() {
     {%- if include.viewer == 'anno' -%}
-      createAnnotationAdminViewer({{ manifests }});
+      window.viewer = createAnnotationAdminViewer({{ manifests }});
     {%- else -%}
-      createZenViewer({{ manifests }});
+      window.viewer = createZenViewer({{ manifests }});
     {%- endif -%}
   });
 </script>
 
 {%- if include.viewer == 'anno' -%}
-  <button type='button' id='anno_button'>View Cached Annotations</button>
-  <button type='button' id='no_anno_button'>Hide Cached Annotations</button>
-  <button type='button' id='download'>Download Cached Annotations</button>
+  __Annotation List (GUI):__ <button type='button' id='gui_button'>View</button> <button type='button' id='no_gui_button'>Hide</button><br>
+  __Annotation List (JSON):__ <button type='button' id='anno_button'>View</button> <button type='button' id='no_anno_button'>Hide</button> <button type='button' id='download'>Download</button>
 
+  <div id='gui_results'></div>
   <div id='anno_results'></div>
 {%- endif -%}

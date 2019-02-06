@@ -9,9 +9,9 @@
   <title>Part 1</title>
   <meta name="description" content="">
 
-  <link rel="stylesheet" href="/copperfield_annotation_admin/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/copperfield_annotation_admin/">
-  <link rel="alternate" type="application/rss+xml" title="Copperfield Annotation Admin" href="/copperfield_annotation_admin/feed.xml">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Copperfield Annotation Admin" href="/feed.xml">
   
   
 </head>
@@ -24,7 +24,7 @@
   <div class="wrapper">
     
     
-    <a class="site-title" href="/copperfield_annotation_admin/">Copperfield Annotation Admin</a>
+    <a class="site-title" href="/">Copperfield Annotation Admin</a>
   
     
       <nav class="site-nav">
@@ -43,12 +43,12 @@
           
             
             
-            <a class="page-link" href="/copperfield_annotation_admin/">Part 1</a>
+            <a class="page-link" href="/">Part 1</a>
             
           
             
             
-            <a class="page-link" href="/copperfield_annotation_admin/part-2/">Part 2</a>
+            <a class="page-link" href="/part-2/">Part 2</a>
             
           
             
@@ -73,26 +73,28 @@
   </header>
 
   <div class="post-content">
-    <link rel="stylesheet" type="text/css" href="http://localhost:4000/copperfield_annotation_admin/build/mirador/css/mirador-combined.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:4000/build/mirador/css/mirador-combined.css" />
 
-<link rel="stylesheet" type="text/css" href="http://localhost:4000/copperfield_annotation_admin/assets/annotator.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/annotator.css" />
 
-<script src="http://localhost:4000/copperfield_annotation_admin/build/mirador/mirador.js" type="text/javascript"></script>
+<script src="http://localhost:4000/build/mirador/mirador.js" type="text/javascript"></script>
 
 <div id="mirador-iiif-viewer" class="image-viewer mirador" allowfullscreen="allowfullscreen"></div>
 
-<script src="http://localhost:4000/copperfield_annotation_admin/assets/annotation_endpoint.js" type="text/javascript"></script>
+<script src="http://localhost:4000/assets/annotation_endpoint.js" type="text/javascript"></script>
 <script>
-  $(document).ready(function() {createAnnotationAdminViewer([
+  $(document).ready(function() {window.viewer = createAnnotationAdminViewer([
   
-    'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest.json'
+    'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest.json', 
+  
+    'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest.json'
   
 ]);});
 </script>
-<p><button type="button" id="anno_button">View Cached Annotations</button>
-  <button type="button" id="no_anno_button">Hide Cached Annotations</button>
-  <button type="button" id="download">Download Cached Annotations</button></p>
+<p><strong>Annotation List (GUI):</strong> <button type="button" id="gui_button">View</button> <button type="button" id="no_gui_button">Hide</button><br />
+  <strong>Annotation List (JSON):</strong> <button type="button" id="anno_button">View</button> <button type="button" id="no_anno_button">Hide</button> <button type="button" id="download">Download</button></p>
 
+<div id="gui_results"></div>
 <div id="anno_results"></div>
 
   </div>

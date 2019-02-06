@@ -1,12 +1,21 @@
 title:            'Copperfield Annotation Admin'
 description:      ''
-url:              ''
-baseurl:          '/copperfield_annotation_admin'
+url:              'http://marii.info/copperfield_annotation_admin'
+baseurl:          ''
 copyright:        ''
 theme:            minima
 permalink:        'pretty'
 safe:             true
-exclude:          [Gemfile*, Rakefile, vendor, spec, README.md]
+exclude:          [Gemfile*, Rakefile, vendor, spec, README.md, annotations]
+
 webrick:
   headers:
     'Access-Control-Allow-Origin': '*'
+
+
+wax_annotate:
+  ingest_dir: 'annotations'
+  target_dir: 'iiif'
+  manifests:
+    - 'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest.json'
+    - 'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest.json'
