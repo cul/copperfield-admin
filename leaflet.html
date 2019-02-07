@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<link rel='stylesheet' href='//unpkg.com/leaflet@1.3.1/dist/leaflet.css'/>
+
+<script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src='//unpkg.com/leaflet@1.3.1/dist/leaflet.js'></script>
+<script src='//cdn.jsdelivr.net/npm/leaflet-label@0.2.1-0/dist/leaflet.label.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/leaflet-iiif@2.0.1/leaflet-iiif.min.js'></script>
+
+<div id='iiif-viewer' style='width:100%;height:600px'></div>
+
+<script>
+  var iiifLayers = {};
+  var manifestUrl = 'https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest.json';
+  var iiif_viewer = L.map('iiif-viewer', {
+    center: [0, 0],
+    crs: L.CRS.Simple,
+    zoom: 1,
+    zoomSnap: .5,
+    minZoom: 0,
+    maxZoom: 6
+  });
+
+
+  $.getJSON(manifestUrl, function(data) {
+    console.log(data);
+    var i = 1;
+    $.each(data.sequences[0].canvases, function(_, val) {
+      var label = 'Page ' + i;
+      iiifLayers[label] = L.tileLayer.iiif(val.images[0].resource.service['@id'] + '/info.json', {fitBounds: true});
+      i++;
+    });
+    if (i > 2){ L.control.layers(iiifLayers).addTo(iiif_viewer);}
+    iiifLayers[Object.keys(iiifLayers)[0]].addTo(iiif_viewer);
+  });
+</script>

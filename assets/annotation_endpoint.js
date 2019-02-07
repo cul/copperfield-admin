@@ -2,26 +2,27 @@
 
 
 $(document).ready(function() {
-  $('#no_anno_button').click(function() {
+  $('.manifest_selector').click(function() {
+    var manifest = $(this).attr('manifest');
+    document.getElementById('mirador-iiif-viewer').innerHTML = '';
+    createAnnotationAdminViewer(window.data, manifest=manifest);
+  });
+
+  $('#hide').click(function() {
+    $("#gui_results").empty();
     $("#anno_results").empty();
   });
 
-  $('#no_gui_button').click(function() {
-    $("#gui_results").empty();
-  });
-
-  $('#anno_button').click(function() {
+  $('#view').click(function() {
     var sumAnnotations = getLocalAnnotations();
 
     $('#anno_results').empty();
-    $('#anno_results').append(`<div class='anno'><h3>Results (JSON): ${sumAnnotations.length} locally generated annotations were found</h3><textarea rows='30' cols='100' id='annotationJSON'>${JSON.stringify(sumAnnotations, null, 2)}</textarea></div>`);
-  });
-
-
-  $('#gui_button').click(function() {
-    var sumAnnotations = getLocalAnnotations();
     $("#gui_results").empty();
-    $('#gui_results').append(`<div class='anno'><h3>Results (GUI):</h3><ul id='annotationGUI'></ul></div>`)
+
+    $('#anno_results').append(`<div class='anno'><h2>JSON</h2><textarea rows='30' cols='100' id='annotationJSON'>${JSON.stringify(sumAnnotations, null, 2)}</textarea></div>`);
+
+
+    $('#gui_results').append(`<div class='anno'><h2>Results</h2><ul id='annotationGUI'></ul></div>`)
     for (a in sumAnnotations) {
       $('#annotationGUI').append(`<li>${annotationToText(sumAnnotations[a])}</li>`);
     };
@@ -30,17 +31,20 @@ $(document).ready(function() {
       var canvas = $(this).attr('canvas');
       var manifest = $(this).attr('manifest');
 
-      turnPageTo(canvas, manifest);
+      console.log(canvas, manifest);
+
+      document.getElementById('mirador-iiif-viewer').innerHTML = '';
+      createAnnotationAdminViewer(window.data, manifest=manifest, canvas=canvas);
     });
   });
 
-
   $("#download").click(function() {
-    var d = new Date();
-    var datetime = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}_${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`;
-    var filename = `annotations_${datetime}.json`
+    var d         = new Date();
+    var datetime  = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}_${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`;
+    var filename  = `annotations_${datetime}.json`
+    var json      = JSON.stringify(getLocalAnnotations(), null, 2);
 
-    download(filename, $('#annotationJSON').val());
+    download(filename, json);
   });
 });
 
@@ -50,21 +54,11 @@ $(document).ready(function() {
 
 // FUNCTIONS
 
-
-
-
-function turnPageTo(canvas, manifest) {
-  console.log(window.viewer.canvasID);
-  window.viewer.canvasID = canvas;
-};
-
 function annotationToText(anno) {
   var text = [];
   var canvas = anno['on'][0]['full'];
   var canvas_name = canvas.split('/').slice(-1).pop();
   var manifest = anno['on'][0]['within']['@id'];
-
-  console.log(anno);
 
   for (r in anno['resource']) {
     var resource = anno['resource'][r];
@@ -109,28 +103,8 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-function createZenViewer(manifests) {
-  opts = {
-    id: 'mirador-iiif-viewer',
-    data: [],
-    windowObjects: [{
-      loadedManifest: manifests[0],
-      displayLayout: false,
-      bottomPanel: false,
-      sidePanel: false,
-      annotationLayer: true
-    }],
-    mainMenuSettings: {
-      show: false
-    }
-  };
-  for (m in manifests) {
-    opts.data.push({ 'manifestUri': manifests[m] });
-  }
-  return Mirador(opts);
-}
-
-function createAnnotationAdminViewer(manifests) {
+function createAnnotationAdminViewer(data, manifest=null, canvas=null) {
+  window.data = data;
   opts = {
     id: 'mirador-iiif-viewer',
     annotationEndpoint: {
@@ -139,26 +113,14 @@ function createAnnotationAdminViewer(manifests) {
     },
     data: [],
     windowObjects: [{
-      loadedManifest: manifests[0],
+      loadedManifest: manifest || data[0],
       displayLayout: false,
-      bottomPanel: false,
       sidePanel: false,
 
     }]
   };
-  for (m in manifests) {
-    opts.data.push({ 'manifestUri': manifests[m] });
-  }
+
+  if (canvas != null) { opts.windowObjects[0].canvasID = canvas; }
+  for (d in data) { opts.data.push({ 'manifestUri': data[d] }); }
   return Mirador(opts);
-}
-
-function addManifestAsWindowedObject(viewer, manifest) {
- viewer.viewer.state.currentConfig.windowObjects = [{'loadedManifest': manifest }];
-}
-
-function addManifestsToViewer(viewer, manifests) {
-  addManifestAsWindowedObject(manifests[0]);
-  for (m in manifests) {
-    viewer.viewer.data.push({ 'manifestUri': manifests[m] });
-  }
 }

@@ -1,3 +1,9 @@
+{% for m in include.manifests %}<button manifest='{{ m.src}}' href='#' class='manifest_selector'>{{ m.name }}</button> {% endfor %}
+{% capture manifests -%}
+  {%- for m in include.manifests %}'{{ m.src }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}
+{% endcapture %}
+
+
 <link rel='stylesheet' type='text/css' href="{{ 'build/mirador/css/mirador-combined.css' | absolute_url }}">
 <link rel='stylesheet' type='text/css' href="{{ 'assets/annotator.css' | absolute_url }}">
 
@@ -6,27 +12,21 @@
 
 <script src="{{ 'assets/annotation_endpoint.js' | absolute_url }}" type='text/javascript'></script>
 
-{%- capture manifests -%}
-[
-  {% for m in include.manifests %}
-    '{{ m }}'{% unless forloop.last %}, {% endunless %}
-  {% endfor %}
-]
-{%- endcapture -%}
 
 <script>
   $(document).ready(function() {
     {%- if include.viewer == 'anno' -%}
-      window.viewer = createAnnotationAdminViewer({{ manifests }});
+      window.viewer = createAnnotationAdminViewer([{{ manifests }}]);
     {%- else -%}
-      window.viewer = createZenViewer({{ manifests }});
+      window.viewer = createZenViewer([{{ manifests }}]);
     {%- endif -%}
   });
 </script>
 
 {%- if include.viewer == 'anno' -%}
-  __Annotation List (GUI):__ <button type='button' id='gui_button'>View</button> <button type='button' id='no_gui_button'>Hide</button><br>
-  __Annotation List (JSON):__ <button type='button' id='anno_button'>View</button> <button type='button' id='no_anno_button'>Hide</button> <button type='button' id='download'>Download</button>
+  <button type='button' id='view'>View Cached Annotations</button>
+  <button type='button' id='hide'>Hide Cached Annotations</button>
+  <button type='button' id='download'>Download Cached Annotations</button>
 
   <div id='gui_results'></div>
   <div id='anno_results'></div>
