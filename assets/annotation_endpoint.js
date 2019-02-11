@@ -40,7 +40,7 @@ $(document).ready(function() {
 
   $("#download").click(function() {
     var d         = new Date();
-    var datetime  = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}_${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`;
+    var datetime  = `${d.getFullYear()}-${zPad(d.getMonth()+1)}-${zPad(d.getDate())}_${zPad(d.getHours())}-${zPad(d.getMinutes())}-${zPad(d.getSeconds())}`;
     var filename  = `annotations_${datetime}.json`
     var json      = JSON.stringify(getLocalAnnotations(), null, 2);
 
@@ -53,6 +53,10 @@ $(document).ready(function() {
 
 
 // FUNCTIONS
+
+function zPad(num) {
+  return String(num).padStart(2, '0');
+}
 
 function annotationToText(anno) {
   var text = [];

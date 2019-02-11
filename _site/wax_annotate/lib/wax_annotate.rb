@@ -1,116 +1,89 @@
+require 'wax_annotate/annotation'
+require 'wax_annotate/config'
+require 'wax_annotate/error'
+require 'wax_annotate/manifest'
 require 'wax_annotate/version'
 
 # top level comment todo
 module WaxAnnotate
-  class Error < StandardError; end
 
-  #
-  #
-  def self.create_annotation_list(canvas)
-    canvas_dir = canvas.gsub(/.json$/, '')
-    canvas_name = File.basename(canvas_dir)
-    list_path = "#{canvas_dir}/list.json"
-    return if File.exist?(list_path)
+  class Annotator
+    def initialize(site_config)
+      @config       = WaxAnnotate::Config.new(site_config)
+      @annotations  = fetch_annotations.map { |hash| Annotation.new(hash) }
+      @listpath     = File.join(@config.target_dir, 'annotations.json')
+      @manifests    = @config.manifests.map { |uri| Manifest.new(uri, @config, @listpath) }
 
-    puts "Creating #{list_path}\n".cyan
+      @list = {
+        '@context': 'http://iiif.io/api/presentation/2/context.json',
+        '@id': @listpath,
+        '@type': "sc:AnnotationList",
 
-    list_content = <<~HEREDOC
-      ---
-      layout: none
-      canvas: '#{canvas_name}'
-      ---
-      {% assign anno_name = page.canvas | append: '-resources' %}
-      {% assign annotations = site.pages | where: 'label', anno_name | first %}
-      {
-        "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "{{ '#{list_path}' | absolute_url }}",
-        "@type": "sc:AnnotationList",
-        "resources": {{ annotations.content }}
+        'resources': []
       }
-    HEREDOC
 
-    FileUtils.mkdir_p(canvas_dir)
-    File.open(list_path, 'w') { |f| f.write(list_content) }
-  end
+      puts @list
 
-  #
-  #
-  def self.parse_annotations(canvas)
-    JSON.parse(File.read(canvas))
-  rescue StandardError => e
-    raise "Cannot parse annotation JSON for file #{canvas}.\n#{e}".magenta
-  end
+      raise WaxAnnotate::Error, "Couldn't find annotations to process in '#{@config.ingest_dir}'" if @annotations.empty?
+      raise WaxAnnotate::Error, "Couldn't find IIIF manifests to process in _config.yml" if @manifests.empty?
 
-
-  #
-  #
-  def self.store_annotations(canvas)
-    annotations = WaxAnnotate.parse_annotations(canvas)
-    name = File.basename(canvas, '.json')
-    annotation_path = canvas.gsub("#{name}.json", "#{name}/#{name}.json")
-
-    if File.exist?(annotation_path)
-      old_annotations = JSON.parse(remove_yaml(File.read(annotation_path)))
-      annotations = annotations.concat old_annotations
+      validate_annotations
     end
 
-    content = <<~HEREDOC
-      ---
-      layout: none
-      label: #{name}-resources
-      ---
-      #{JSON.pretty_generate(annotations)}
-    HEREDOC
+    #
+    #
+    def process_annotations
+      puts Rainbow("\nFound #{@annotations.length} unique annotations inside ingest_dir '#{@config.ingest_dir}'").cyan
 
-    puts "Adding annotations to #{annotation_path}".cyan
-    File.open(annotation_path, 'w+') { |f| f.write(content) }
-  end
 
-  #
-  #
-  def self.remove_yaml(string)
-    string.gsub(/\A---(.|\n)*?---/, '')
-  end
 
-  #
-  #
-  def self.parse_manifest(manifest)
-    text = File.read("iiif/#{manifest}/clean-manifest.json")
-    text = remove_yaml(text)
-    JSON.parse(text)
-  end
+      annotation_list = JSON.pretty_generate(@annotations.map { |a| a.hash })
+      FileUtils.mkdir_p(File.dirname(@listpath))
+      File.open(@listpath, 'w+') { |f| f.write(annotation_list) }
 
-  #
-  #
-  def self.update_manifest(item)
-    stored_canvases = Dir["#{item}/*/"].map do |c|
-      File.basename(c, '.*')
+      puts Rainbow("\nSuccess ✓").green
     end
 
-    return if stored_canvases.empty?
+    #
+    #
+    def fetch_annotations
+      raise WaxAnnotate::Error, "Cannot find 'ingest_dir'" if @config.ingest_dir.nil?
 
-    puts "Adding annotations from #{stored_canvases} to manifest copy.".cyan
-
-    manifest_json = parse_manifest(item)
-    canvases = manifest_json['sequences'][0]['canvases'].select do |c|
-      stored_canvases.include? c['@id'].split('/')[-1]
+      Dir["#{@config.ingest_dir}/*.json"].map do |file|
+        date = File.basename(file, '.json').gsub('annotations_', '')
+        JSON.parse(IO.read(file)).map do |a|
+          a['dateCreated'] = date
+          a
+        end
+      end.flatten
     end
 
-    canvases.each do |canvas|
-      annotation = {}
-      id = canvas['@id'].split('/')[-1]
-      annotation['@id'] = "{{ '/annotations/#{manifest}/#{id}/list.json' | absolute_url }}"
-      annotation['@type'] = 'sc:AnnotationList'
-      canvas['otherContent'] = [annotation]
+    #
+    #
+    def validate_annotations
+      ids    = @annotations.each.map(&:id)
+      dups   = ids.find_all { |i| ids.count(i) > 1 }.uniq
+
+      return if dups.empty?
+
+      valid = (ids - dups).map { |i| @annotations.find{ |a| a.id == i } }
+      dups.each do |d|
+        possible = @annotations.find_all { |a| a.id == d }
+        newest   = possible.sort_by! { |k| k.date }.last
+
+        valid << newest
+      end
+
+      @annotations = valid
     end
 
-    content = <<~HEREDOC
-      ---
-      layout: none
-      ---
-      #{JSON.pretty_generate(manifest_json)}
-    HEREDOC
-
-    File.open("iiif/#{manifest}/manifest.json", 'w+') { |f| f.write(content) }
+    #
+    #
+    def self.add_annotations_to_manifests(annotations, manifests)
+      manifest_dict = manifests.map { |m| { path: m.path, ogid: m.hash.fetch('@ogid') } }
+      # annotations.each do |anno|
+      #   path = manifest_dict.find { |m| m[:ogid] == anno.parent }.fetch(:path)
+      # end
+    end
   end
 end

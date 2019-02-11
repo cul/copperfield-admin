@@ -1,17 +1,18 @@
 require 'rainbow'
 require 'fileutils'
 require 'json'
+require 'yaml'
 
 require 'wax_annotate'
-require 'wax_tasks'
 
 namespace :wax do
   namespace :annotate do
     desc 'store local iiif annotations and add them to manifest'
     task :iiif do
-      # Dir['_annotations/*.json'].each do |annotation_list|
-      #   puts annotation_list
-      # end
+      site_config = YAML.load_file('./_config.yml')
+      annotator   =  WaxAnnotate::Annotator.new(site_config )
+
+      # annotator.process_annotations
     end
   end
 end
