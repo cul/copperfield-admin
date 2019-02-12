@@ -4,44 +4,49 @@ module WaxAnnotate
   #
   #
   class Manifest
-    attr_reader :hash, :path
+    attr_reader :hash, :path, :listdir
 
-    def initialize(uri, config, listpath)
+    def initialize(uri, config)
       @uri      = uri
       @config   = config
-      @listpath = "#{config.url}#{config.baseurl}#{listpath}"
-      @path     = "#{@config.target_dir}/#{@uri.split('/')[-2]}/clean-manifest.json"
-      @hash     = create_clean_manifest
+      @dir      = File.join(@config.target_dir, @uri.split('/')[-2])
+      @path     = "#{@dir}/manifest.json"
+      @listdir  = File.join(@dir, 'list')
+      @hash     = parse_manifest
     end
 
     #
     #
     def fetch_remote_manifest
-      return JSON.parse(IO.read(@path)) if File.exist?(@path)
-
       response = Net::HTTP.get_response(URI(@uri))
       raise WaxAnnotate::Error, "Could not load manifest from '#{@uri}.'" unless response.is_a? Net::HTTPSuccess
 
-      hash                  = JSON.parse(response.body)
-      hash['@ogid']         = hash['@id'].clone
-      hash['@id']           = File.join(@config.url, @config.baseurl, @path)
-      hash['otherContent']  = [{ '@id' => @listpath, '@type' => 'sc:AnnotationList' }]
-
-      hash
+      JSON.parse(response.body)
     rescue => e
       raise WaxAnnotate::Error.new("Coldn't parse JSON from manifest found at #{@uri}.", e)
     end
 
     #
     #
-    def create_clean_manifest
-      hash = fetch_remote_manifest
-      return hash if File.exist?(@path)
-
-      FileUtils.mkdir_p(File.dirname(@path))
-      File.open(@path, 'w+') { |f| f.write(JSON.pretty_generate(hash)) }
-
-      hash
+    def parse_manifest
+      if File.exist?(@path)
+        JSON.parse(IO.read(@path))
+      else
+        manifest = fetch_remote_manifest
+        manifest['sequences'].map do |seq|
+          seq['canvases'].map do |c|
+            canvas_id = c['@id'].split('/')[-1]
+            c['otherContent'] = [{
+              '@id':   File.join(@listpath, "#{canvas_id}.json"),
+              '@type': 'sc:AnnotationList'
+            }]
+            c
+          end
+        end
+        FileUtils.mkdir_p(File.dirname(@path))
+        File.open(@path, 'w+') { |f| f.write(JSON.pretty_generate(manifest)) }
+        manifest
+      end
     end
   end
 end

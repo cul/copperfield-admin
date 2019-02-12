@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "iiif/d8-99q5-rq86/annotations.json",
+  "@id": "iiif/d8-99q5-rq86/list/d8-ka5v-b886.json",
   "@type": "sc:AnnotationList",
   "resources": [
     {

@@ -1,0 +1,44 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "iiif/d8-fcng-k085/list/d8-dg2m-rw91.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@type": "oa:Annotation",
+      "motivation": [
+        "oa:commenting"
+      ],
+      "resource": [
+        {
+          "@type": "dctypes:Text",
+          "format": "text/html",
+          "chars": "<p>test1</p>"
+        }
+      ],
+      "on": [
+        {
+          "@type": "oa:SpecificResource",
+          "full": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/canvas/10.7916/d8-dg2m-rw91",
+          "selector": {
+            "@type": "oa:Choice",
+            "default": {
+              "@type": "oa:FragmentSelector",
+              "value": "xywh=962,1826,1663,1379"
+            },
+            "item": {
+              "@type": "oa:SvgSelector",
+              "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M1205.63029,2027.78203c153.56365,-115.77291 370.19006,-201.98508 587.86624,-201.88208v0v0c217.67618,0.103 407.30864,80.75309 587.86624,201.88208c180.5576,121.12899 250.73805,305.70618 243.50217,487.38645c-7.23588,181.68028 -91.88808,360.46364 -243.50217,487.38645c-151.61409,126.92281 -370.19006,201.98508 -587.86624,201.88208c-217.67618,-0.103 -434.45255,-75.37127 -587.86624,-201.88208c-153.41368,-126.51081 -243.46468,-304.26416 -243.50217,-487.38645c-0.03749,-183.1223 89.93852,-371.61354 243.50217,-487.38645z\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;rotation&quot;:0,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null,&quot;editable&quot;:true,&quot;annotation&quot;:null}\" id=\"ellipse_e3f00446-9245-46da-b6c3-8a055f75fdd3\" fill-opacity=\"0\" fill=\"#00bfff\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+            }
+          },
+          "within": {
+            "@id": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-fcng-k085/manifest",
+            "@type": "sc:Manifest"
+          }
+        }
+      ],
+      "@id": "7e5409a1-d677-4ff9-9e19-89125a793611",
+      "dateCreated": "2019-02-11_15-26-51"
+    }
+  ]
+}

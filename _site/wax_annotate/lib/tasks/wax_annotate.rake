@@ -10,9 +10,9 @@ namespace :wax do
     desc 'store local iiif annotations and add them to manifest'
     task :iiif do
       site_config = YAML.load_file('./_config.yml')
-      annotator   =  WaxAnnotate::Annotator.new(site_config )
+      annotator   = WaxAnnotate::Annotator.new(site_config)
 
-      # annotator.process_annotations
+      annotator.process_annotations
     end
   end
 end

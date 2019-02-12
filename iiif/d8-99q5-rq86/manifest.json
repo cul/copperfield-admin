@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "http://marii.info/copperfield_annotation_admin/iiif/d8-99q5-rq86/manifest.json",
+  "@id": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest",
   "@type": "sc:Manifest",
   "logo": {
     "@id": "http://cdn.cul.columbia.edu/ldpd-toolkit/img/crown-bts-24x24.png"
@@ -40,7 +40,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:8931zcrm0g/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-24p6-z479.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -71,7 +77,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:jwstqjq40w/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-vhwk-q642.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -102,7 +114,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:k0p2ngf3k0/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-jy5t-dk45.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -133,7 +151,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:7h44j0zr0s/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-4ndk-kh52.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -164,7 +188,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:1vhhmgqq6f/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-ka5v-b886.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -195,7 +225,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:sxksn02wwc/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-z030-bj15.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -226,7 +262,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:4mw6m9079m/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-t1y1-ke22.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -257,7 +299,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:r4xgxd26vq/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-djbs-0v98.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -288,7 +336,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:np5hqbzn4c/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-02bc-4753.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -319,7 +373,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:nzs7h44kpw/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-eyp9-8b26.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -350,7 +410,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:g4f4qrfkvg/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-pjh8-yc07.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -381,7 +447,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:d51c59zxqr/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-gygn-vj96.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -412,7 +484,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:s1rn8pk29w/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-t1zr-kp12.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -443,7 +521,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:xwdbrv174g/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-8s18-8k54.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -474,7 +558,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:9ghx3ffd5g/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-r9a7-ma58.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -505,7 +595,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:tb2rbnztw0/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-m6x6-0s47.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -536,7 +632,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:cjsxksn1qg/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-fb58-ha18.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -567,7 +669,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:stqjq2bxc3/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-gc61-qh15.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -598,7 +706,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:vt4b8gtkhc/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-q75q-2051.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -629,7 +743,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:vmcvdncmg6/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-5d5k-gx22.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -660,7 +780,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:jh9w0vt5xr/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-6ady-ns10.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -691,7 +817,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:0gb5mkkz3d/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-80sg-0747.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -722,7 +854,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:n2z34tmr6b/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-tgqk-2k15.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -753,7 +891,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:0rxwdbrwr0/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-3y1e-7m25.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -784,7 +928,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:z34tmpg61m/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-2nfv-q265.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -815,7 +965,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:sn02v6wzc2/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-99gz-3685.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -846,7 +1002,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:3bk3j9kft9/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-s89c-xx43.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -877,7 +1039,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:1c59zw3snd/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-gb1t-h414.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -908,7 +1076,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:3ffbg79fb4/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-v4e9-vn32.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -939,7 +1113,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:brv15dv5pd/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-ympn-r541.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -970,7 +1150,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:k3j9kd531v/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-p7er-xt27.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1001,7 +1187,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:p2ngf1vk4z/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-dw5r-pt72.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1032,7 +1224,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:zs7h44j2n3/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-srag-5v16.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1063,7 +1261,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:73n5tb2szn/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-zcxe-pm07.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1094,7 +1298,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:2jm63xskrk/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-9ny8-xk70.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1125,7 +1335,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:x95x69pb4c/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-tvrn-ar25.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1156,7 +1372,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:7m0cfxpqh1/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-nd2d-4k73.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1187,7 +1409,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:73n5tb2szp/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-kdmf-e485.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1218,7 +1446,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:w9ghx3fh0s/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-dbha-za53.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1249,7 +1483,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:rr4xgxd3vr/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-2zyg-7430.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1280,7 +1520,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:4j0zpc87t5/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-8sx7-e433.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1311,7 +1557,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:p2ngf1vk50/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-1d2p-td87.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1342,7 +1594,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:sqv9s4mxz1/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-e9eq-j948.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1373,7 +1631,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:5mkkwh72fb/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-rdbp-4049.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1404,7 +1668,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:qfttdz0b60/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-1w1z-6361.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1435,7 +1705,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:0gb5mkkz3f/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-hbz9-v924.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1466,7 +1742,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:m905qftw3j/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-5je5-js81.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1497,7 +1779,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:j0zpc868gd/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-5fj3-0v69.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1528,7 +1816,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:rxwdbrv2vr/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-1dqn-4333.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1559,7 +1853,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:hmgqnk9bf4/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-4yyz-x186.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1590,7 +1890,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:xsj3tx97jq/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-40c1-w345.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1621,7 +1927,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:mw6m905s3j/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-b7qy-3f64.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1652,7 +1964,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:34tmpg4grs/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-rna1-0g97.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1683,7 +2001,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:zs7h44j2n4/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-x0hk-2d15.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1714,7 +2038,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:08kprr5019/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-e93m-1e05.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1745,7 +2075,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:qv9s4mw893/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-3pcm-ad09.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1776,7 +2112,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:t1g1jwswc9/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-f1q5-re02.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1807,7 +2149,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:70rxwdbtfx/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-w9wm-rj92.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1838,7 +2186,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:7h44j0zr0t/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-g8f2-5e14.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1869,7 +2223,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:d51c59zxqs/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-pqwc-az77.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1900,7 +2260,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:bcc2fqz7pv/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-m2pz-m927.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         },
         {
           "@type": "sc:Canvas",
@@ -1931,7 +2297,13 @@
             "height": 256,
             "@type": "dctypes:Image",
             "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:9p8cz8wc4c/full/!256,256/0/native.jpg"
-          }
+          },
+          "otherContent": [
+            {
+              "@id": "iiif/d8-99q5-rq86/list/d8-wvmz-z816.json",
+              "@type": "sc:AnnotationList"
+            }
+          ]
         }
       ],
       "label": "Sequence"
@@ -1946,12 +2318,5 @@
     "height": 256,
     "@type": "dctypes:Image",
     "@id": "https://derivativo-3.library.columbia.edu/iiif/2/cul:8931zcrm0g/full/!256,256/0/native.jpg"
-  },
-  "@ogid": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest",
-  "otherContent": [
-    {
-      "@id": "iiif/d8-99q5-rq86/annotations.json",
-      "@type": "sc:AnnotationList"
-    }
-  ]
+  }
 }

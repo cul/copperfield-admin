@@ -1,0 +1,44 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "iiif/d8-99q5-rq86/list/d8-ka5v-b886.json",
+  "@type": "sc:AnnotationList",
+  "resources": [
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@type": "oa:Annotation",
+      "motivation": [
+        "oa:commenting"
+      ],
+      "resource": [
+        {
+          "@type": "dctypes:Text",
+          "format": "text/html",
+          "chars": "<p>test3</p>"
+        }
+      ],
+      "on": [
+        {
+          "@type": "oa:SpecificResource",
+          "full": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/canvas/10.7916/d8-ka5v-b886",
+          "selector": {
+            "@type": "oa:Choice",
+            "default": {
+              "@type": "oa:FragmentSelector",
+              "value": "xywh=582,1598,2092,667"
+            },
+            "item": {
+              "@type": "oa:SvgSelector",
+              "value": "<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M582.23033,1597.61444l1283.65067,70.7524l444.72937,596.34165l363.86948,-485.15931v0\" data-paper-data=\"{&quot;strokeWidth&quot;:1,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;annotation&quot;:null}\" id=\"rough_path_35e354c1-62d0-4f3c-bc4f-cd60950404be\" fill=\"none\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"
+            }
+          },
+          "within": {
+            "@id": "https://derivativo-3.library.columbia.edu/iiif/2/presentation/10.7916/d8-99q5-rq86/manifest",
+            "@type": "sc:Manifest"
+          }
+        }
+      ],
+      "@id": "34931dce-d9cb-4766-b1aa-7f7f649f96f4",
+      "dateCreated": "2019-02-11_15-26-51"
+    }
+  ]
+}
