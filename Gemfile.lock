@@ -1,5 +1,6 @@
-PATH
-  remote: wax_annotate
+GIT
+  remote: https://github.com/mnyrop/wax_annotate.git
+  revision: cc2be50d5bc50ee2d8fe8afe88d6ba554a5db9d6
   specs:
     wax_annotate (0.1.0)
       rainbow (~> 3.0)
