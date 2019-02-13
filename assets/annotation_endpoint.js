@@ -31,10 +31,13 @@ $(document).ready(function() {
       var canvas = $(this).attr('canvas');
       var manifest = $(this).attr('manifest');
 
-      console.log(canvas, manifest);
-
-      document.getElementById('mirador-iiif-viewer').innerHTML = '';
-      createAnnotationAdminViewer(window.data, manifest=manifest, canvas=canvas);
+      let mirador = window.viewer;
+      let miradorWindow = mirador.viewer.workspace.windows[0];
+      let event = 'SET_CURRENT_CANVAS_ID.' + miradorWindow.id;
+      let canvasID = canvas;
+      mirador.eventEmitter.publish(
+        event, canvas
+      );
     });
   });
 
