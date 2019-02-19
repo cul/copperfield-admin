@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/mnyrop/wax_annotate.git
-  revision: cc2be50d5bc50ee2d8fe8afe88d6ba554a5db9d6
+PATH
+  remote: wax_annotate
   specs:
     wax_annotate (0.1.0)
       rainbow (~> 3.0)
@@ -12,7 +11,11 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     colorator (1.1.0)
+    colorize (0.8.1)
     concurrent-ruby (1.1.4)
+    diane (0.0.2)
+      colorize (~> 0.8)
+      mercenary (~> 0.3)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -69,6 +72,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  diane
   jekyll (~> 3.8)
   minima (~> 2.1.1)
   wax_annotate!

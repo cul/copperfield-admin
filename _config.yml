@@ -1,17 +1,15 @@
 title:            'Copperfield Annotation Admin'
 description:      ''
 url:              ''
-baseurl:          '/copperfield_annotation_admin'
+baseurl:          '/copperfield-admin'
 copyright:        ''
 theme:            minima
 permalink:        'pretty'
 safe:             true
-exclude:          [Gemfile*, Rakefile, vendor, spec, README.md, annotations]
-
+exclude:          [Gemfile*, Rakefile, vendor, spec, README.md, annotations, wax_annotate]
 webrick:
   headers:
     'Access-Control-Allow-Origin': '*'
-
 
 wax_annotate:
   ingest_dir: 'annotations'

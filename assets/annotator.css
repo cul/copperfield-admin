@@ -1,13 +1,23 @@
-#mirador-iiif-viewer {
+.image-viewer {
   position: relative;
   width: 100%;
   max-height: 60%;
   min-height: 600px;
   margin: 1rem 0 1rem 0;
 }
-.anno{
+.anno {
   max-width: 800;
   overflow: scroll;
   padding: 10px;
   margin-top: 10px;
+}
+.mirador-manipulation-controls {
+  display: none;
+}
+
+.manifest-selector {
+  background-color: #008CBA;
+  padding: 0.5rem;
+  font-size: .8em;
+  color: white;
 }

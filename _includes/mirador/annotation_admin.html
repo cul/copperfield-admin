@@ -1,0 +1,22 @@
+<b>Annotate: </b>{% for m in include.manifests %}<button manifest='{{ m.src | absolute_url }}' href='#' class='manifest-selector manifest-selector-admin'>{{ m.name }}</button>
+{% endfor %}
+
+{% capture data -%}
+  {%- for m in include.manifests %}'{{ m.src | absolute_url }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}
+{% endcapture %}
+
+{% include mirador/assets.html %}
+
+<div id='mirador-admin-viewer' class='image-viewer mirador'></div>
+
+<script>
+  window.data   = [{{ data }}];
+  window.viewer = createAnnotationAdminViewer(data=window.data);
+</script>
+
+<button type='button' id='view'>View Cached Annotations</button>
+<button type='button' id='hide'>Hide Cached Annotations</button>
+<button type='button' id='download'>Download Cached Annotations</button>
+
+<div id='gui_results'></div>
+<div id='anno_results'></div>
