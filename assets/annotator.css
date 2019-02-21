@@ -5,19 +5,31 @@
   min-height: 600px;
   margin: 1rem 0 1rem 0;
 }
+
 .anno {
   max-width: 800;
   overflow: scroll;
   padding: 10px;
   margin-top: 10px;
 }
+
 .mirador-manipulation-controls {
   display: none;
 }
 
-.manifest-selector {
+.manifest-selector, .result-controls {
   background-color: #008CBA;
   padding: 0.5rem;
-  font-size: .8em;
+  font-size: 1em;
   color: white;
+}
+
+#annotationJSON {
+  height: 350px;
+  width: 100%;
+  border: 1px #008CBA solid;
+}
+
+a, a:visited {
+  color: #008CBA;
 }

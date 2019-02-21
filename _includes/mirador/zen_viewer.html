@@ -1,4 +1,4 @@
-<b>Preview: </b>{% for m in include.manifests %}<button manifest='{{ m.src | absolute_url }}' href='#' class='manifest-selector manifest-selector-zen'>{{ m.name }}</button> {% endfor %}
+<b>Preview: </b>{% for m in include.manifests %}<button manifest='{{ m.src | absolute_url }}' href='#' class='manifest-selector'>{{ m.name }}</button> {% endfor %}
 {% capture data -%}
   {%- for m in include.manifests %}'{{ m.src | absolute_url }}'{% unless forloop.last %}, {% endunless %}{%- endfor -%}
 {% endcapture %}
