@@ -38,9 +38,15 @@ $(document).ready(function() {
 
       if (!targetManifestID.endsWith('.json'))  { targetManifestID += '.json'; }
 
-      currentWindow.manifest = availableManifests[targetManifestID];
-      currentWindow.canvasID = targetCanvasID;
-      currentWindow.update();
+      // currentWindow.manifest = availableManifests[targetManifestID];
+      // currentWindow.canvasID = targetCanvasID;
+      // console.log(targetCanvasID);
+      // console.log(currentWindow);
+      // currentWindow.update();
+      // console.log(currentWindow);
+
+      let event = 'SET_CURRENT_CANVAS_ID.' + currentWindow.id;
+      window.viewer.eventEmitter.publish(event, targetCanvasID);
     });
   });
 
