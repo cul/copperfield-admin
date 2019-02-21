@@ -107770,10 +107770,6 @@ var paper = function(t, e) {
         this.currentImg = this.imagesList[this.currentImgIndex];
 
         var newCanvas = this.canvases[_this.canvasID];
-        console.log(this.canvases); // marii
-        console.log(_this.canvasID); // marii
-        console.log(newCanvas); // marii
-
         var canvasBounds = newCanvas.getBounds();
         var rect = new OpenSeadragon.Rect(
           canvasBounds.x,

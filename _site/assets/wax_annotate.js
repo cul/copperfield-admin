@@ -1,15 +1,16 @@
 // EVENTS
 
 $(document).ready(function() {
-  console.log(window.viewer.workspace);
-  $('.manifest-selector-admin').click(function() {
-    let manifestID  = $(this).attr('manifest');
-    window.viewer   = changeManifest(manifestID, 'mirador-admin-viewer');
-  });
+  $('.manifest-selector').click(function() {
+    let targetManifestID    = $(this).attr('manifest');
+    let availableManifests  = getLoadedManifests();
+    let currentWindow       = window.viewer.workspace.windows[0];
 
-  $('.manifest-selector-zen').click(function() {
-    let manifestID  = $(this).attr('manifest');
-    window.viewer   = changeManifest(manifestID, 'mirador-zen-viewer');
+    if (!targetManifestID.endsWith('.json'))  { targetManifestID += '.json'; }
+
+    currentWindow.manifest = availableManifests[targetManifestID];
+    currentWindow.canvasID = null;
+    currentWindow.update();
   });
 
   $('#hide').click(function() {
@@ -18,31 +19,28 @@ $(document).ready(function() {
   });
 
   $('#view').click(function() {
-    let sumAnnotations = getLocalAnnotations();
+    const sumAnnotations = getLocalAnnotations();
 
     $('#anno_results').empty();
     $("#gui_results").empty();
 
-    $('#anno_results').append(`<div class='anno'><h2>JSON</h2><textarea rows='30' cols='100' id='annotationJSON'>${JSON.stringify(sumAnnotations, null, 2)}</textarea></div>`);
-
-
-    $('#gui_results').append(`<div class='anno'><h2>Results</h2><ul id='annotationGUI'></ul></div>`)
+    $('#anno_results').append(`<div class='anno'><textarea rows='30' cols='100' id='annotationJSON'>${JSON.stringify(sumAnnotations, null, 2)}</textarea></div>`);
+    $('#gui_results').append(`<div class='anno'><ul id='annotationGUI'></ul></div>`)
     for (a in sumAnnotations) {
       $('#annotationGUI').append(`<li>${annotationToText(sumAnnotations[a])}</li>`);
     };
 
     $('.annotation_link').click(function() {
-      let manifestID       = $(this).attr('manifest');
-      let canvasID         = $(this).attr('canvas');
-      let currentState     = window.viewer.state.currentConfig;
-      let currentManifest  = currentState.windowObjects[0].loadedManifest;
-      if (currentManifest != manifestID) {
-        window.viewer = changeManifest(manifestID, 'mirador-admin-viewer');
-        // setTimeout(function() {}, 100000);
-      }
-      let windowID  = window.viewer.workspace.windows[0].id;
-      let event     = 'SET_CURRENT_CANVAS_ID.' + windowID;
-      window.viewer.eventEmitter.publish(event, canvasID);
+      let targetCanvasID      = $(this).attr('canvas');
+      let targetManifestID    = $(this).attr('manifest');
+      let availableManifests  = getLoadedManifests();
+      let currentWindow       = window.viewer.workspace.windows[0];
+
+      if (!targetManifestID.endsWith('.json'))  { targetManifestID += '.json'; }
+
+      currentWindow.manifest = availableManifests[targetManifestID];
+      currentWindow.canvasID = targetCanvasID;
+      currentWindow.update();
     });
   });
 
@@ -60,6 +58,10 @@ $(document).ready(function() {
 
 
 // FUNCTIONS
+
+function getLoadedManifests() {
+  return window.viewer.state.currentConfig.manifests;
+}
 
 function zPad(num) {
   return String(num).padStart(2, '0');
@@ -96,22 +98,7 @@ function annotationToText(anno) {
     text = `${text.substring(0,49)}...`;
   }
 
-  return `<b>"${text}"</b> on canvas <a href='#' canvas='${canvas}' manifest='${manifest}' class='annotation_link'>#${canvasName}</a> within manifest <a href='#' canvas='${canvas}' manifest='${manifest}' class='annotation_link'>#${manifestName}</a>`;
-}
-
-function getLocalAnnotations() {
-  let keys            = Object.keys(localStorage);
-  let canvases        = keys.filter(function(k){ return k.startsWith('http'); });
-  let sumAnnotations  = [];
-
-  for (c in canvases) {
-    var annotations = JSON.parse(localStorage[canvases[c]]);
-    for (i in annotations) {
-      sumAnnotations.push(annotations[i]);
-    }
-  }
-
-  return sumAnnotations;
+  return `Annotation <b>"${text}"</b> on canvas <a href='#' canvas='${canvas}' manifest='${manifest}' class='annotation_link'>#${canvasName}</a>`;
 }
 
 function download(filename, text) {
@@ -139,6 +126,8 @@ function createAnnotationAdminViewer(data, manifest=null, canvas=null) {
       loadedManifest: manifest || data[0],
       availableViews: ['ImageView', 'ThumbnailsView'],
       viewType: 'ImageView',
+      annotationLayer: true,
+      annotationState: true,
       displayLayout: false,
       sidePanel: false
     }]
@@ -155,6 +144,10 @@ function createZenViewer(data, manifest=null) {
     mainMenuSettings: {
       show: false
     },
+    annotationEndpoint: {
+      name: 'Local Storage',
+      module: 'LocalStorageEndpoint'
+    },
     autoHideControls: true,
     data: [],
     windowObjects: [{
@@ -164,6 +157,7 @@ function createZenViewer(data, manifest=null) {
       displayLayout: false,
       sidePanel: false,
       annotationLayer: true,
+      annotationState: true,
       annotationCreation: false,
       sidePanelVisible: false,
       bottomPanelVisible: false
@@ -173,16 +167,17 @@ function createZenViewer(data, manifest=null) {
   return Mirador(opts).viewer;
 }
 
-function changeManifest(manifestID, viewerID) {
-  document.getElementById(viewerID).innerHTML = '';
-  if (!manifestID.endsWith('.json')){
-    manifestID += '.json';
+function getLocalAnnotations() {
+  let keys            = Object.keys(localStorage);
+  let canvases        = keys.filter(function(k){ return k.startsWith('http'); });
+  let sumAnnotations  = [];
+
+  for (c in canvases) {
+    var annotations = JSON.parse(localStorage[canvases[c]]);
+    for (i in annotations) {
+      sumAnnotations.push(annotations[i]);
+    }
   }
-  console.log('switching to ' + manifestID);
-  if (viewerID == 'mirador-admin-viewer') {
-    return createAnnotationAdminViewer(data=window.data, manifest=manifestID)
-  }
-  else if (viewerID == 'mirador-zen-viewer') {
-    return createZenViewer(data=window.data, manifest=manifestID);
-  }
+
+  return sumAnnotations;
 }
